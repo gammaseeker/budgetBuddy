@@ -1,7 +1,7 @@
-import mongoose, { mongo } from "mongoose";
+import { Schema, model } from "mongoose";
 import IIncome from "../interfaces/IIncome";
 
-const Income = new mongoose.Schema({
+const incomeSchema = new Schema<IIncome>({
     email: {
         type: String,
         required: true
@@ -16,7 +16,8 @@ const Income = new mongoose.Schema({
     }
 });
 
-export default mongoose.model<IIncome & mongoose.Document>("Income", Income);
+const Income = model<IIncome>('Income', incomeSchema);
+export default Income;
 
 
 

@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
+    "@types/jest": "^26.0.23",
     "jest": "^27.0.6"
   }
 }

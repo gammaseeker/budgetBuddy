@@ -19,7 +19,7 @@ app.use(body_parser_1.urlencoded({ extended: true }));
 // Associate router with application
 app.use('/', index_1.router);
 app.use('/api/income', income_1.default);
-mongoose_1.default.connect('mongodb://localhost:27017/budgetbuddy', {
+mongoose_1.default.connect('mongodb://127.0.0.1:27017/budgetbuddy', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true

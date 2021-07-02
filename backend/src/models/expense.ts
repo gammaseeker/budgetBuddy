@@ -1,7 +1,7 @@
-import mongoose, { mongo } from "mongoose";
+import { Schema, model } from "mongoose";
 import IExpense from "../interfaces/IExpense";
 
-const Expense = new mongoose.Schema({
+const expenseSchema = new Schema<IExpense>({
     email: {
         type: String,
         required: true
@@ -17,7 +17,12 @@ const Expense = new mongoose.Schema({
     amount: {
         type: Number,
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
 
-export default mongoose.model<IExpense & mongoose.Document>("Expense", Expense);
+const Expense = model<IExpense>('Expense', expenseSchema);
+export default Expense;

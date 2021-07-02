@@ -13,6 +13,10 @@ const incomeSchema = new Schema<IIncome>({
     amount: {
         type: Number,
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
 

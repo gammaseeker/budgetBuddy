@@ -37,14 +37,14 @@ export const getByEmail: RequestHandler = (req: Request, res: Response, next: Ne
  * @param res 
  * @param next 
  */
-export const createIncome: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+export const createIncome: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
     const newIncome = new Income ({
         email: req.body.email,
         title: req.body.title,
         amount: req.body.amount,
         date: req.body.date
     });
-    newIncome.save()
+    await newIncome.save()
     .then(() => {
         res.status(200).send(newIncome);
     })
@@ -59,7 +59,7 @@ export const createIncome: RequestHandler = (req: Request, res: Response, next: 
  * @param res 
  * @param next 
  */
-export const updateIncome: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+export const updateIncome: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
     // can change amount or title of income. cannot change email
     const incomeId = req.body.incomeId;
     const title = req.body.title;
@@ -95,11 +95,11 @@ export const updateIncome: RequestHandler = (req: Request, res: Response, next: 
  * @param res 
  * @param next 
  */
-export const deleteIncome: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+export const deleteIncome: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
     const incomeId = req.body.incomeId;
     Income.deleteOne({ "_id": incomeId })
     .then(() => {
-        res.status(200).send({});
+        res.status(200).send({"message": "deleted successfully"});
     })
     .catch((err) => {
         res.status(500).send(err);

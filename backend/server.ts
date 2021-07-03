@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import {json, urlencoded} from 'body-parser';
 import { router } from './src/routes/index';
 import incomeRouter from './src/routes/income';
+import expenseRouter from './src/routes/expense';
 
 // Create a new express app instance
 const app: express.Application = express();
@@ -18,6 +19,7 @@ app.use(urlencoded({ extended: true }));
 // Associate router with application
 app.use('/', router);
 app.use('/api/income', incomeRouter);
+app.use('/api/expense', expenseRouter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/budgetbuddy', {
     useCreateIndex: true,

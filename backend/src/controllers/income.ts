@@ -1,10 +1,6 @@
 import { RequestHandler, Request, Response, NextFunction } from "express";
 import Income from "../models/income";
-import { createDocumentMap } from "./utils";
-
-interface updateField {
-    [key: string]: any
-}
+import { createDocumentMap, updateField } from "./utils";
 
 /**
  * Retrieves all income documents. This function is meant to be used for debugging.

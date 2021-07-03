@@ -1,3 +1,7 @@
+export interface updateField {
+    [key: string]: any
+}
+
 /**
  * Creates a map between a document's _id and the document record
  * @param documents 

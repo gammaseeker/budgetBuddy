@@ -8,18 +8,16 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Users/Login';
 import Register from './components/Users/Register';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/">
-            <Login />
-          </Route>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/register" component={Register} />
+          <Route path="/" component={Login} />
         </Switch>
       </Router>
     </div>
